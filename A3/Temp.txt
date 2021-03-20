@@ -1,0 +1,23 @@
+1. What happens to the training and testing error as polynomials of higher degree are used for prediction?
+a. With higher degree polynomials, training error decreases for a small sample size since the model is able to fit according to the small number of samples in the training data and perfectly predict them. But, the same model has really high testing error because it is now trained to very specific data points and cannot make predictions for new data.
+
+2.  Does a single global minimum exist for Polynomial Regression as well? If yes, justify.  
+a. Yes. Any polynomial regression equation can be solved to obtain the final weights to minimize the error by differentiating w.r.t the weights w0,w1,...w11,w12,,,,wNN.
+
+3. Which form of regularization curbs overfitting better in your case? Can you think of a case when Lasso regularization works better than Ridge?  
+
+a. Ridge regularization had slightly better results as compared to lasso regularization.
+b. Lasso tends to do well if there are a small number of significant parameters and the others are close to zero (when only a few predictors actually influence the response). Ridge works well if there are many large parameters of about the same value (when most predictors impact the response).
+
+4. How does the regularization parameter affect the regularization process and weights? What would happen if a higher value for λ (> 2) was chosen?  
+a. Larger the regularization parameter Lambda, more penalty is assigned to larger weights for features, hence, the extent of overfitting is inversely related to the value of regularization parameter. This regularization parameter thus, helps to tackle overfitting.
+b. For a high lambda value, high penalties are assigned to the weights for the features. As lambda is increased, the regression model starts to underfit the data and slowly the weights of some features become insignificant (tend to zero). For a really high lambda (>100), the regression line is almost parallel to the x-axis since only theta zero significantly contributes to the equation. Testing and training errors are extremely high in such a case.
+
+5. Regularization is necessary when you have a large number of features but limited training instances. Do you agree with this statement?  
+a. Yes, we totally agree with this statement. When there are low numbers of training samples, our regression model tries to fit perfectly to these data points and thus the coefficients of the features also become large. When the same weights are used to make predictions on testing data, variance is very high. Hence, a regularization term is introduced to penalize the large parameters that lead to overfitting.
+
+6. If you are provided with D original features and are asked to generate new matured features of degree N, how many such new matured features will you be able to generate? Answer in terms of N and D.  
+a. Number of features for (D,N)= (D+N)C(N) where D is the number of the original features, N is the degree of the polynomial.
+
+7. What is bias-variance trade off and how does it relate to overfitting and regularization.
+a. The model with a high bias (training error) and high variance (testing error) faces a problem of Under-fitting. Models with low bias and high Variance have to deal with Overfitting problems. A good model would always have low Bias and low Variance. This is also called the Bias-Variance trade-off. The degree of the polynomial and the regularization parameters need to be tuned to arrive at the optimal bias-variance trade-off.
